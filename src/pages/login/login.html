@@ -1,0 +1,33 @@
+<ion-content>
+  <div padding text-center class="header" class="animated fadeIn login auth-page">
+    <div class="logo secondary-bg">
+      <!-- <img src="assets/img/login.png" /> -->
+      <ion-icon name="ios-car" color="light"></ion-icon>
+    </div>
+    <h2 ion-text color="light">{{'LOGIN' | translate}}</h2>
+  </div>
+  <ion-list class="list-form" padding>
+    <ion-item>
+      <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          {{'EMAIL_ADDRESS'| translate}}
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="userInfo.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>
+          <ion-icon name="key" item-start class="text-primary"></ion-icon>
+          {{'PASSWORD'| translate}}
+      </ion-label>
+      <ion-input type="password" [(ngModel)]="userInfo.password"></ion-input>
+      <button ion-button clear item-right (click)="reset()">{{'FORGOT' | translate}}</button>
+    </ion-item>
+    <ion-item>
+      <button padding ion-button block color="green" (click)="login()">{{'LOGIN' | translate}}</button>
+    </ion-item>
+  </ion-list>
+  <!-- start Login screen -->
+</ion-content>
+<ion-footer *ngIf="isRegisterEnabled">
+  <button ion-button color="secondary" block (click)="signup()">{{'SIGN UP' | translate}}</button>
+</ion-footer>

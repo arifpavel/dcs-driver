@@ -1,0 +1,60 @@
+<!-- Side menu starts -->
+<ion-header color="green">
+  <ion-navbar color="green">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+        DCS TAXI
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- 
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <button ion-button clear (click)="goProfile()">
+          <ion-icon name="contact"></ion-icon>&nbsp;{{'PROFILE' | translate}}</button>
+      <ion-title>
+        <strong>Ionic 3</strong> Start Theme
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button tappable (click)="presentNotifications($event)">
+          <ion-icon name="notifications"></ion-icon>
+        </button>
+        <button ion-button tappable (click)="goToAccount()">
+          <ion-icon name="cog"></ion-icon>
+        </button>
+      </ion-buttons
+    </ion-navbar>
+</ion-header> -->
+<ion-content>
+  <div id="map" style="height: 100%;width:100%;"></div>
+</ion-content>
+<ion-footer>
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="{{ (driver)?.photoURL}}">
+    </ion-avatar>
+    <ion-label>{{ (driver)?.name }} - {{ (driver)?.rating }}
+      <ion-icon name="md-star"></ion-icon>
+    </ion-label>
+    <ion-toggle item-right [(ngModel)]="isDriverAvailable" (ionChange)="changeAvailability()"></ion-toggle>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <button ion-button clear (click)="goWallet()">
+        <ion-icon name="card"></ion-icon>&nbsp;{{'WALLET' | translate}}</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button clear (click)="goHistory()">
+        <ion-icon name="clock"></ion-icon>&nbsp;{{'HISTORY' | translate}}</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button clear (click)="goProfile()">
+        <ion-icon name="contact"></ion-icon>&nbsp;{{'PROFILE' | translate}}</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

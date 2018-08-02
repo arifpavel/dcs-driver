@@ -1,0 +1,22 @@
+page-wallet,
+.wallet {
+
+  .top-balance {
+    padding: 30px 10px 10px;
+
+    button.button-block {
+      margin-top: 30px;
+    }
+  }
+  ion-note, .note-md{
+    background: #222;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  code{
+    background: #8BC34A;
+    padding: 0px 5px;
+    color: #fff;
+  }
+}
