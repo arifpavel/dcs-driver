@@ -1,4 +1,4 @@
-<ion-menu side="left" id="authenticated" [content]="content">
+<ion-menu side="left" *ngIf="authenticated == 1" id="authenticated" [content]="content">
         <ion-header>
           <ion-toolbar class="user-profile" color="green">
             <ion-grid>
@@ -10,7 +10,7 @@
                 </ion-col>
                 <ion-col padding-top col-8>
                   <h2 ion-text class="no-margin bold text-white">
-                    João Firmino
+                    {{ (driver)?.name }}
                   </h2>
                   <span ion-text color="light">
                     <ion-label>
@@ -44,9 +44,9 @@
         <ion-content color="primary">
       
           <ion-list class="user-list">
-            <button ion-item menuClose class="text-1x" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
-              <ion-icon item-left [name]="menuItem.icon" color="primary"></ion-icon>
-              <span ion-text color="primary">{{menuItem.title}}</span>
+            <button ion-item menuClose class="text-1x" *ngFor="let menuItem of appMenuItems">
+              <ion-icon item-lef name="call" color="primary"></ion-icon>
+              <span ion-text color="primary">Menu</span>
             </button>
           </ion-list>
         </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, ToastController, MenuController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home'
 import { AuthService } from "../../services/auth-service";
@@ -15,7 +15,9 @@ export class LoginPage {
   userInfo: any = {};
   isRegisterEnabled = ENABLE_SIGNUP;
 
-  constructor(public nav: NavController, public authService: AuthService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public toast: ToastController, public translate: TranslateService) { }
+  constructor(public nav: NavController, public menu:MenuController, public authService: AuthService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public toast: ToastController, public translate: TranslateService) { 
+    this.menu.enable(false);
+  }
 
   // go to signup page
   signup() {
@@ -50,5 +52,4 @@ export class LoginPage {
       this.toast.create({ message: 'Please enter email address first', duration: 3000 }).present()
     }
   }
-
 }

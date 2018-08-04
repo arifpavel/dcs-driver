@@ -32,15 +32,12 @@ export class MyApp {
   positionTracking: any;
   driver: any;
   user: any = {};
-  menuItems: any = {};
+  authenticated: any = 0;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, placeService: PlaceService,
     driverService: DriverService, afAuth: AngularFireAuth,
     public authService: AuthService, tripService: TripService, public translate: TranslateService) {
-      this.menuItems = [
-        {title: 'Home', component: HomePage, icon: 'home'},
-        {title: 'Local Weather', component:'', icon: 'partly-sunny'}
-      ];
+ 
     this.translate.setDefaultLang('en');
     this.translate.use('en');
     platform.ready().then(() => {
@@ -53,7 +50,7 @@ export class MyApp {
       afAuth.authState.take(1).subscribe(authData => {
         if (authData) {
           let root: any = HomePage;
-
+          this.authenticated = 1;
           // check for uncompleted trip
           tripService.getTrips().take(1).subscribe(trips => {
             trips.forEach(trip => {
@@ -88,7 +85,5 @@ export class MyApp {
       });
     });
   }
-
-
 }
 
