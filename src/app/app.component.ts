@@ -44,7 +44,7 @@ export class MyApp {
   dealStatus: any = false;
   public job: any;
   public remainingTime = DEAL_TIMEOUT;
-
+  public isAuthenticated = false;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public alertCtrl: AlertController, public placeService: PlaceService,
   public driverService: DriverService, afAuth: AngularFireAuth,
     public authService: AuthService, public dealService: DealService, tripService: TripService, public geolocation: Geolocation,
@@ -61,7 +61,7 @@ export class MyApp {
       afAuth.authState.take(1).subscribe(authData => {
         if (authData) {
           let root: any = HomePage;
-
+          this.isAuthenticated = true;
           // check for uncompleted trip
           tripService.getTrips().take(1).subscribe(trips => {
             trips.forEach(trip => {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, AlertController } from 'ionic-angular';
+import { NavController, ModalController, AlertController, MenuController } from 'ionic-angular';
 
 import { DriverService } from '../../services/driver-service';
 import { DEAL_STATUS_PENDING, DEAL_TIMEOUT, POSITION_INTERVAL, PLAY_AUDIO_ON_REQUEST, AUDIO_PATH } from "../../services/constants";
@@ -33,7 +33,9 @@ export class HomePage {
   public job: any;
   public remainingTime = DEAL_TIMEOUT;
   
-  constructor(public nav: NavController, public driverService: DriverService, public modalCtrl: ModalController, public alertCtrl: AlertController, public dealService: DealService, public authService: AuthService, public placeService: PlaceService, public geolocation: Geolocation, public translate: TranslateService) { }
+  constructor(public nav: NavController, public driverService: DriverService, public menu:MenuController, public modalCtrl: ModalController, public alertCtrl: AlertController, public dealService: DealService, public authService: AuthService, public placeService: PlaceService, public geolocation: Geolocation, public translate: TranslateService) {
+      this.menu.enable(true);
+   }
   loadMap(lat,lng){
     let latLng = new google.maps.LatLng(lat,lng);
     this.map = new google.maps.Map(document.getElementById('map'), {
