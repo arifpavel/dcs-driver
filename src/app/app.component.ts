@@ -176,6 +176,13 @@ export class MyApp {
     
   }
 
+  ionViewWillLeave() {
+    if (this.dealSubscription) {
+      // unsubscribe when leave this page
+      this.dealSubscription.unsubscribe();
+    }
+  }
+
   // count down
   countDown() {
     let interval = setInterval(() => {
