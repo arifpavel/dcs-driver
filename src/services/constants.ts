@@ -1,6 +1,6 @@
 export let POSITION_INTERVAL = 5000; // 5000ms for refreshing geolocation
 
-export let DRIVER_INIT_BALANCE = 10; // balance when user signed up for first time
+export let DRIVER_INIT_BALANCE = 0; // balance when user signed up for first time
 export let DRIVER_INIT_RATING = 5; // rating when user signedup for first time
 
 export let DEAL_STATUS_PENDING = 'pending';
@@ -14,8 +14,8 @@ export let TRIP_STATUS_CANCELED = 'canceled';
 export let TRANSACTION_TYPE_WITHDRAW = 'withdraw';
 
 // Global Settings
-export let DEFAULT_COUNTRY_CODE = "GB";  // used in AccountKit Mobile verification
-export let DEFAULT_COUNTRY_MOBILE_CODE = "+44";
+export let DEFAULT_COUNTRY_CODE = "BD";  // used in AccountKit Mobile verification
+export let DEFAULT_COUNTRY_MOBILE_CODE = "+88";
 
 export let EMAIL_VERIFICATION_ENABLED = true; // send verification email after user register
 export let APPROVAL_REQUIRED = false; // driver can ride without any approval

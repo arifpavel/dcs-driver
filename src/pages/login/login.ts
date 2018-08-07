@@ -28,18 +28,29 @@ export class LoginPage {
   login() {
     let loading = this.loadingCtrl.create({ content: 'Please wait...' });
     loading.present();
-
-    this.authService.login(this.userInfo.email, this.userInfo.password).then(authData => {
-      loading.dismiss();
-      this.nav.setRoot(HomePage);
-    }, error => {
-      loading.dismiss();
-      let alert = this.alertCtrl.create({
-        message: error.message,
-        buttons: ['OK']
+    if(this.userInfo.email != null && this.userInfo.password != null){
+      this.authService.login(this.userInfo.email, this.userInfo.password).then(authData => {
+        loading.dismiss();
+        this.nav.setRoot(HomePage);
+      }, error => {
+        loading.dismiss();
+        let alert = this.alertCtrl.create({
+          message: error.message,
+          //duration: 3000
+          buttons: ['OK']
+        });
+        alert.present();
       });
-      alert.present();
-    });
+    }
+    else{
+      loading.dismiss();
+        let alert = this.toast.create({
+          message: 'Please enter valid email id',
+          duration: 3000
+          //buttons: ['OK']
+        });
+        alert.present();
+    }
   }
 
   reset() {

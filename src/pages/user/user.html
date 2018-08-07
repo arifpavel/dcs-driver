@@ -45,6 +45,10 @@
           <button ion-button item-right clear *ngIf="!user.isPhoneVerified" (click)="verifyPhone()">{{'VERIFY' | translate}}</button>
         </ion-item>
         <ion-item>
+          <ion-label stacked>{{'PAYPAL_DETAILS' | translate}}</ion-label>
+          <ion-input type="email" [(ngModel)]="user.paypal"></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label stacked>{{'BANK_DETAILS' | translate}}</ion-label>
           <ion-textarea [(ngModel)]="user.bankinfo"></ion-textarea>
         </ion-item>

@@ -39,7 +39,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 // AF2 Settings
 export const firebaseConfig = {
-  apiKey: "AIzaSyAl3y9HSG5jxRsBqWpCF1gDvxhWFlxVKAw",
+  apiKey: "AIzaSyD5c46cSr8ywY1r-Z6uzyD4_akNQNhsBrI",
     authDomain: "dcs-taxi.firebaseapp.com",
     databaseURL: "https://dcs-taxi.firebaseio.com",
     projectId: "dcs-taxi",
