@@ -100,6 +100,8 @@ export class MyApp {
 
   logout() {
     this.authService.logout().then(() => {
+      this.isDriverAvailable = false;
+      this.changeAvailability();
       this.nav.setRoot(LoginPage);
     });
   }
@@ -263,6 +265,10 @@ export class MyApp {
     });
   }
 
+  goHome(){
+    this.nav.setRoot(HomePage);
+    //this.nav.push(HomePage,{ user: this.authService.getUserData()});
+  }
   goProfile(){
     this.nav.push(UserPage,{ user: this.authService.getUserData()});
   }
