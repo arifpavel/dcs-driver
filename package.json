@@ -1,8 +1,8 @@
 {
-    "name": "ionic-hello-world",
-    "version": "0.0.0",
-    "author": "Ionic Framework",
-    "homepage": "http://ionicframework.com/",
+    "name": "DCS-Taxi-Driver",
+    "version": "0.1.0",
+    "author": "Skew Soft",
+    "homepage": "http://skewsoft.com/",
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",
@@ -32,7 +32,7 @@
         "angular2-moment": "^1.6.0",
         "angularfire2": "4.0.0-rc.0",
         "autoprefixer": "^7.1.6",
-        "cordova-android": "7.1.0",
+        "cordova-android": "7.0.0",
         "cordova-ios": "4.5.4",
         "cordova-plugin-accountkit": "^1.4.0",
         "cordova-plugin-compat": "^1.2.0",
@@ -80,9 +80,9 @@
                 "GEOLOCATION_USAGE_DESCRIPTION": " "
             },
             "cordova-plugin-accountkit": {
-                "APP_ID": "767580770058358",
-                "APP_NAME": "CodeSundar Labs",
-                "CLIENT_TOKEN": "6d97e93101b1681dfcb868539f6161ea",
+                "APP_ID": "529991994059863",
+                "APP_NAME": "Arif Pavel",
+                "CLIENT_TOKEN": "194528d70825c8dfc8f967ddd6a0d392",
                 "API_VERSION": "v1.1"
             }
         },

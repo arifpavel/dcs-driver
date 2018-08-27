@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.codesundar.dcstaxidriver" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Driver</name>
-    <description>Driver App</description>
-    <author email="pavelpatiya@gmail.com" href="http://skewsoft.com/">skewsoft.com</author>
+<widget id="com.skewsoft.dcstaxidriver" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>DCS Taxi Driver</name>
+    <description>Driver App for DCS Taxi system</description>
+    <author email="skewsoft@gmail.com" href="http://skewsoft.com/">skewsoft.com</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -86,14 +86,14 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-accountkit" spec="^1.3.0">
-        <variable name="APP_ID" value="767580770058358" />
-        <variable name="APP_NAME" value="CodeSundar Labs" />
-        <variable name="CLIENT_TOKEN" value="6d97e93101b1681dfcb868539f6161ea" />
+        <variable name="APP_ID" value="529991994059863" />
+        <variable name="APP_NAME" value="Arif Pavel" />
+        <variable name="CLIENT_TOKEN" value="194528d70825c8dfc8f967ddd6a0d392" />
         <variable name="API_VERSION" value="v1.1" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <engine name="ios" spec="4.5.4" />
-    <engine name="android" spec="7.1.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>

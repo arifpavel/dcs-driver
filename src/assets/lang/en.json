@@ -30,5 +30,6 @@
     "CALL": "Call",
     "PICKUP": "Pick up",
     "COMPLETE_RIDE": "Complete Ride",
-    "BANK_DETAILS": "Bank Details"
+    "BANK_DETAILS": "Bank Details",
+    "PAYPAL_DETAILS": "Paypal ID"
 }
