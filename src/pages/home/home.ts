@@ -14,6 +14,7 @@ import { JobHistoryPage } from '../job-history/job-history';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { TranslateService } from '@ngx-translate/core';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 declare var google: any;
 
@@ -33,7 +34,9 @@ export class HomePage {
   public job: any;
   public remainingTime = DEAL_TIMEOUT;
   
-  constructor(public nav: NavController, public driverService: DriverService, public menu:MenuController, public modalCtrl: ModalController, public alertCtrl: AlertController, public dealService: DealService, public authService: AuthService, public placeService: PlaceService, public geolocation: Geolocation, public translate: TranslateService) {
+  constructor(public nav: NavController, public driverService: DriverService, public menu:MenuController, public modalCtrl: ModalController, 
+    public alertCtrl: AlertController, public dealService: DealService, public authService: AuthService, public placeService: PlaceService, 
+    public geolocation: Geolocation, public translate: TranslateService, public localNotifications:LocalNotifications) {
       this.menu.enable(true);
    }
   loadMap(lat,lng){
@@ -154,7 +157,13 @@ export class HomePage {
   confirmJob() {
     console.log("confirm");
     let message = "<b>From:</b> ("+this.job.origin.distance+"km)<br/>"+ this.job.origin.vicinity +"<br/><br/> <b>To:</b>("+this.job.destination.distance+"km)<br>"+this.job.destination.vicinity+"";
-
+    // Schedule a single notification
+    this.localNotifications.schedule({
+      id: 1,
+      title: 'Whooa! New ride request',
+      text: message,
+      foreground: true
+    });
     let confirm = this.alertCtrl.create({
       title: 'New Request',
       message:message,

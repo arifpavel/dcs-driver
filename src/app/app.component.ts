@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform, AlertController } from 'ionic-angular';
+import { Platform, AlertController, Events } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,6 +16,8 @@ import { WalletPage } from '../pages/wallet/wallet';
 import { JobHistoryPage } from '../pages/job-history/job-history';
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { Network } from '@ionic-native/network';
+import { NetworkProvider } from '../providers/network/network';
 // import page
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -23,6 +25,8 @@ import { TripService } from "../services/trip-service";
 import { PickUpPage } from "../pages/pick-up/pick-up";
 
 import { TRIP_STATUS_WAITING, TRIP_STATUS_GOING, DEAL_STATUS_PENDING, DEAL_TIMEOUT, POSITION_INTERVAL, PLAY_AUDIO_ON_REQUEST, AUDIO_PATH } from "../services/constants";
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 declare var google: any;
 @Component({
@@ -45,10 +49,12 @@ export class MyApp {
   public job: any;
   public remainingTime = DEAL_TIMEOUT;
   public isAuthenticated = false;
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public alertCtrl: AlertController, public placeService: PlaceService,
+  constructor(platform: Platform, public events: Events, statusBar: StatusBar, splashScreen: SplashScreen, public alertCtrl: AlertController, public placeService: PlaceService,
   public driverService: DriverService, afAuth: AngularFireAuth,
     public authService: AuthService, public dealService: DealService, tripService: TripService, public geolocation: Geolocation,
-    public translate: TranslateService) {
+    public translate: TranslateService, public localNotifications: LocalNotifications,
+    public network: Network,
+    public networkProvider: NetworkProvider) {
     this.translate.setDefaultLang('en');
     this.translate.use('en');
     platform.ready().then(() => {
@@ -56,6 +62,22 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      this.localNotifications.schedule({
+        id: 1,
+        title: 'Whooa! New ride request',
+        text: 'message',
+        foreground: true
+      });
+      this.networkProvider.initializeNetworkEvents();
+      // Offline event
+      this.events.subscribe('network:offline', () => {
+        alert('network:offline ==> '+this.network.type);    
+      });
+
+      // Online event
+      this.events.subscribe('network:online', () => {
+          alert('network:online ==> '+this.network.type);        
+      });
 
       // check for login stage, then redirect
       afAuth.authState.take(1).subscribe(authData => {

@@ -33,6 +33,9 @@ import { UserPage } from "../pages/user/user";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NetworkProvider } from '../providers/network/network';
+import { Network } from '@ionic-native/network';
+import {LocalNotifications } from '@ionic-native/local-notifications';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/', '.json');
 }
@@ -102,7 +105,10 @@ export const firebaseConfig = {
     AuthService,
     SettingService,
     /* import services */
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Network,
+    NetworkProvider,
+    LocalNotifications
   ]
 })
 export class AppModule {
