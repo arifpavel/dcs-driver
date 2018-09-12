@@ -27,7 +27,7 @@ export class HomePage {
   driver: any;
   deal: any;
   dealSubscription: any;
-  isDriverAvailable: any = false;
+  isDriverAvailable: any = true;
   positionTracking: any;
   dealStatus: any = false;
 
@@ -147,6 +147,10 @@ export class HomePage {
       }
       
     });
+  }
+
+  ionViewDidEnter(){
+    this.changeAvailability();
   }
 
   range(n) {

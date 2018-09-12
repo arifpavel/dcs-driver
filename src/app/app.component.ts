@@ -44,7 +44,7 @@ export class MyApp {
   map: any;
   deal: any;
   dealSubscription: any;
-  isDriverAvailable: any = false;
+  isDriverAvailable: any = true;
   dealStatus: any = false;
   public job: any;
   public remainingTime = DEAL_TIMEOUT;
@@ -66,17 +66,19 @@ export class MyApp {
         id: 1,
         title: 'Whooa! New ride request',
         text: 'message',
+        sound: '',
         foreground: true
       });
+      //this.changeAvailability();
       this.networkProvider.initializeNetworkEvents();
       // Offline event
       this.events.subscribe('network:offline', () => {
-        alert('network:offline ==> '+this.network.type);    
+        alert('network:offline! Please enable Wifi or Mobile Data. ');    
       });
 
       // Online event
       this.events.subscribe('network:online', () => {
-          alert('network:online ==> '+this.network.type);        
+          alert('network:online, Enabled '+this.network.type);        
       });
 
       // check for login stage, then redirect

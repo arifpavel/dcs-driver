@@ -14,8 +14,8 @@ export let TRIP_STATUS_CANCELED = 'canceled';
 export let TRANSACTION_TYPE_WITHDRAW = 'withdraw';
 
 // Global Settings
-export let DEFAULT_COUNTRY_CODE = "BD";  // used in AccountKit Mobile verification
-export let DEFAULT_COUNTRY_MOBILE_CODE = "+880";
+export let DEFAULT_COUNTRY_CODE = "US";  // used in AccountKit Mobile verification
+export let DEFAULT_COUNTRY_MOBILE_CODE = "+1";
 
 export let EMAIL_VERIFICATION_ENABLED = true; // send verification email after user register
 export let APPROVAL_REQUIRED = false; // driver can ride without any approval

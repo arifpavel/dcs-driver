@@ -37,11 +37,10 @@
         <ion-content color="primary">
       
           <ion-list class="user-list">
-              <ion-toggle item-right [(ngModel)]="isDriverAvailable" (ionChange)="changeAvailability()"></ion-toggle>
-            <button ion-item menuClose class="text-1x" (click)="goHome()">
-              <ion-icon item-left name="home" color="primary"></ion-icon>
-              <span ion-text color="primary">{{'HOME' | translate}}</span>
-            </button>
+              <ion-item>
+                  <ion-label>Availablity</ion-label>
+                  <ion-toggle color="green" class="toggle flex" [(ngModel)]="isDriverAvailable" (ionChange)="changeAvailability()"></ion-toggle>
+                </ion-item>
             <button ion-item menuClose class="text-1x" (click)="goProfile()">
               <ion-icon item-left name="contact"></ion-icon>
               <span ion-text color="primary">{{'PROFILE' | translate}}</span>
